@@ -1,0 +1,13 @@
+name: ci-javascript-workflow
+
+on: [push]
+jobs: 
+  test-application:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 21
+    - run: node --test **/*.spec.mjs
+    - run: node math.mjs
